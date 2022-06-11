@@ -3,7 +3,7 @@ const Login =()=>{
     return (
 <div class="login-box" class="hold-transition login-page">
   <div class="login-logo">
-    
+  <b>Log In </b>
   </div>
   {/* <!-- /.login-logo --> */}
   <div class="card">

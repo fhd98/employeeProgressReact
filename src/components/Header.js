@@ -24,7 +24,7 @@ const Header =()=>{
           
           <li ><Link to="/">Home</Link></li>
           <li ><Link to="/about-us">About Us</Link></li>
-          <li ><Link to="/home">Sign Up</Link></li>
+          <li ><Link to="/signup">Sign Up</Link></li>
           <li ><Link to="/login">Log In</Link></li>
          
         </ul>
