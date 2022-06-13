@@ -8,6 +8,7 @@ import Signup from './components/Signup';
 import TasksView from './components/TasksView';
 import TasksDetails from './components/TasksDetails';
 import LeavesStatus from './components/LeavesStatus';
+import ApplyLeaves from './components/ApplyLeave';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
          <Route path ="/tasks-view"element={<TasksView />} />
          <Route path ="/tasks-details"element={<TasksDetails />} />
          <Route path ="/leaves-status"element={<LeavesStatus />} />
-         
+         <Route path ="/apply-leave"element={<ApplyLeaves />} />
         
         
       </Route>
