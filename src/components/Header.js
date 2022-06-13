@@ -26,6 +26,19 @@ const Header =()=>{
           <li ><Link to="/about-us">About Us</Link></li>
           <li ><Link to="/signup">Sign Up</Link></li>
           <li ><Link to="/login">Log In</Link></li>
+          <li ><Link to="/tasks-view">Tasks</Link></li>
+
+          <li class="has-children">Leaves
+            <ul class="dropdown arrow-top">
+            <li ><Link to="/leaves-status">Leaves Status</Link></li>
+            <li ><Link to="/apply-leave">Apply Leave</Link></li>
+            </ul>
+            </li>
+
+          <li ><Link to="/tasks-details">Task Details</Link></li>
+
+            
+                           
          
         </ul>
       </nav>

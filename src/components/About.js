@@ -1,6 +1,9 @@
 const About=()=>{
     return(
+        <>
         <h1> Thiss is about us </h1>
+        
+      </>
     )
 }
 
