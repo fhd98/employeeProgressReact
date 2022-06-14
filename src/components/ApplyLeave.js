@@ -1,4 +1,19 @@
+import { useState } from "react";
+
+
 const ApplyLeaves=()=>{
+
+const [daysLeave, setDaysLeave]=useState('');
+const [typeLeave, setTypeLeave]=useState('Casual Leave');
+const [details, setDetails]=useState('');
+const [startDate, setStartDate]=useState('');
+const [endDate, setEndDate]=useState('');
+
+
+
+const check=()=>{
+    alert(daysLeave+', '+typeLeave+', '+details+', '+startDate+', '+endDate);
+}
     return(
 <div class="center">
         <div class="col-md-6">
@@ -12,34 +27,34 @@ const ApplyLeaves=()=>{
 
                 <div class="form-group">
                         <label>Total Days of Leave</label>
-                        <input type="text" class="form-control" placeholder="Enter a number"/>
+                        <input value={daysLeave} type="text" class="form-control" onChange={(e)=>setDaysLeave(e.target.value)} placeholder="Enter a number"/>
                       </div>
 
                       
 
                       <div class="form-group">
                         <label>Type Of Leave</label>
-                        <select class="form-control">
-                          <option>Sick Leave</option>
-                          <option>Casual Leave</option>
-                          <option>Annual Leave</option>
+                        <select value={typeLeave} onChange={(e)=>setTypeLeave(e.target.value)} class="form-control">
+                          <option value="Sick Leave">Sick Leave</option>
+                          <option value="Casual Leave">Casual Leave</option>
+                          <option value="Annual Leave">Annual Leave</option>
                           
                         </select>
                       </div>
 
                       <div class="form-group">
                         <label>Details </label>
-                        <input type="text" class="form-control" placeholder="Details (if any)"/>
+                        <input value={details} onChange={(e)=>setDetails(e.target.value)} type="text" class="form-control" placeholder="Details (if any)"/>
                       </div>
 
                       <div class="form-group">
                   <label>Starting Date:</label> <br/>
-                  <input type="date" id="" name=""/>
+                  <input value={startDate} onChange={(e)=>setStartDate(e.target.value)} type="date" id="" name=""/>
                 </div>
 
                 <div class="form-group">
                   <label>Ending Date:</label> <br/>
-                  <input type="date" id="" name=""/>
+                  <input value={endDate} onChange={(e)=>setEndDate(e.target.value)} type="date" id="" name=""/>
                 </div>
 
                  
@@ -47,7 +62,7 @@ const ApplyLeaves=()=>{
                 </div>
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" onClick={check} class="btn btn-primary">Submit</button>
                 </div>
               </form>
               </div>
