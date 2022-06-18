@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalStateProvider from './store/GlobalStateProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <GlobalStateProvider>
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  </GlobalStateProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

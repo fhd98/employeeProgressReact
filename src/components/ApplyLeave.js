@@ -4,7 +4,7 @@ import { useState } from "react";
 const ApplyLeaves=()=>{
 
 const [daysLeave, setDaysLeave]=useState('');
-const [typeLeave, setTypeLeave]=useState('Casual Leave');
+const [typeLeave, setTypeLeave]=useState('');
 const [details, setDetails]=useState('');
 const [startDate, setStartDate]=useState('');
 const [endDate, setEndDate]=useState('');
