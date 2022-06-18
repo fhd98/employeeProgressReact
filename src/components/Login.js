@@ -40,9 +40,9 @@ const handleLogin=(e)=>{
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={(e)=>{ handleLogin(e)} }>
         <div class="input-group mb-3">
-          <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" class="form-control" placeholder="Email"/>
+          <input required value={email} onChange={(e)=>setEmail(e.target.value)} type="email" class="form-control" placeholder="Email"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
