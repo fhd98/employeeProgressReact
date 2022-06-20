@@ -34,7 +34,7 @@ const handleSignup=(e)=>{
 
       <form method="POST"  onSubmit={(e)=>{ handleSignup(e)} }>
         <div class="input-group mb-3">
-          <input value={name} onChange={(e)=>setName(e.target.value)} type="text" class="form-control" placeholder="Full name"/>
+          <input required value={name} onChange={(e)=>setName(e.target.value)} type="text" class="form-control" placeholder="Full name"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -42,7 +42,7 @@ const handleSignup=(e)=>{
           </div>
         </div>
         <div class="input-group mb-3">
-          <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" class="form-control" placeholder="Email"/>
+          <input required value={email} onChange={(e)=>setEmail(e.target.value)} type="email" class="form-control" placeholder="Email"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -50,7 +50,7 @@ const handleSignup=(e)=>{
           </div>
         </div>
         <div class="input-group mb-3">
-          <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" class="form-control" placeholder="Password"/>
+          <input required value={password} onChange={(e)=>setPassword(e.target.value)} type="password" class="form-control" placeholder="Password"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -60,7 +60,7 @@ const handleSignup=(e)=>{
 
         <div class="form-group">
                         
-                        <select value={gender} onChange={(e)=>setGender(e.target.value)} class="form-control">
+                        <select required value={gender} onChange={(e)=>setGender(e.target.value)} class="form-control">
                           <option value="">Choose Gender</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
@@ -70,7 +70,7 @@ const handleSignup=(e)=>{
 
         <div class="form-group">
                         
-                        <select value={dept} onChange={(e)=>setDept(e.target.value)} class="form-control">
+                        <select required value={dept} onChange={(e)=>setDept(e.target.value)} class="form-control">
                           <option value="">Choose Department</option>
                           <option value="reporting">Reporting</option>
                           <option value="development">Development</option>

@@ -1,15 +1,14 @@
-export const GetCall=(cb)=>
+export const LoginCall=(data,cb)=>
 {    
-    fetch('http://localhost:8000/api/jdata',{
-        method:'GET',
+    fetch('http://localhost:8000/api/login',{
+        method:'POST',
         headers:{
-          
             'Content-Type':'application/json'
-        }
+        },
+        body:JSON.stringify(data)
     })
-    .then(resp =>resp.json())
+    .then (resp=>resp.json())
     .then((result)=>{
-//console.log(result);
         cb(result);
     })
 }

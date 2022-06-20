@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginCall } from "../models/LoginFetch";
 import Context from "../store/Context";
 
 const Login =()=>{
 
-    const {globalState, globalDispatch} =useContext(Context);
+    const {globalDispatch} =useContext(Context);
     const Navigate = useNavigate();
 
 
@@ -15,19 +16,27 @@ const [password, setPassword]=useState('');
 
 const handleLogin=(e)=>{
     
+ 
     e.preventDefault();
 
-    globalDispatch ({ type: 'TOKEN', data: {token: 'fahad123'} });
 
-    let isLoggedIn= globalState?.token?.token;
-    console.log(isLoggedIn);
-    if(isLoggedIn === undefined || isLoggedIn === '') {
-        Navigate ('/tasks-view'); }
-        else {
-            Navigate ('login');
-        }
+    LoginCall({email:email, password:password}, function(result) 
+    {
+        console.log(result);
+        if(result.status==="Success"){
+        globalDispatch ({ type: 'TOKEN', data: {token: 'logged in'} });
+        //set local storage here
+
+        Navigate ('/tasks-view');
+    }
+
+
+    else {
+        Navigate ('/login');
+    }     
+})
+        
 }
-
 
 
     return (
