@@ -9,6 +9,7 @@ import TasksView from './components/TasksView';
 import TasksDetails from './components/TasksDetails';
 import LeavesStatus from './components/LeavesStatus';
 import ApplyLeaves from './components/ApplyLeave';
+import { WrongLogin } from './components/WrongLogin';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
          <Route path ="/tasks-details"element={<TasksDetails />} />
          <Route path ="/leaves-status"element={<LeavesStatus />} />
          <Route path ="/apply-leave"element={<ApplyLeaves />} />
+         <Route path ="/error-login"element={<WrongLogin />} />
         
         
       </Route>
