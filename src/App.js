@@ -11,6 +11,7 @@ import LeavesStatus from './components/LeavesStatus';
 import ApplyLeaves from './components/ApplyLeave';
 import { WrongLogin } from './components/WrongLogin';
 import { PendingLogin } from './components/PendingLogin';
+import Welcome from './components/Welcome';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
          <Route path ="/apply-leave"element={<ApplyLeaves />} />
          <Route path ="/error-login"element={<WrongLogin />} />
          <Route path ="/pending-login"element={<PendingLogin />} />
+         <Route path ="/welcome"element={<Welcome />} />
         
         
       </Route>

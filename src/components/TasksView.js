@@ -1,4 +1,41 @@
+import {  useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { TaskCompletion, TaskFetch, TaskProgress } from "../models/TaskFetch";
+
 const TasksView =()=>{
+	var empName=localStorage.getItem('EmployeeName');
+
+	const[tasks, setTasks]=useState([]);
+
+	useEffect(()=>{
+		//console.log('HEllo World');
+		TaskFetch(empName,function(result){
+			setTasks(result);
+		})
+		
+	},[])
+
+	//console.log(tasks);
+
+
+	const handleTaskCompletion=($taskId)=>{
+			
+			TaskCompletion($taskId, function(result){
+					//console.log(result);
+					window.location.reload();
+			})
+
+	}
+
+	const handleProgress=($taskId)=>{
+			
+		TaskProgress($taskId, function(result){
+				//console.log(result);
+				window.location.reload();
+		})
+
+}
+
     return(
         <section class="ftco-section">
 		<div class="container">
@@ -9,33 +46,41 @@ const TasksView =()=>{
 						<table class="table">
 						  <thead class="thead-primary">
 						    <tr>
-						      <th>#</th>
-						      <th>Project Name</th>
-                              <th>Project Details</th>
+						      
+						      <th>Title</th>
+                              <th>Details</th>
 						      <th>Deadline</th>
                               <th>Status</th>
+							  <th>Mark as In-Progress</th>
+							  <th>Mark as Complete</th>
                               
                               
 						    </tr>
 						  </thead>
 						  <tbody>
+
+							  {
+tasks.length >0 ?
+tasks.map((row,key)=>{ 
+
+			//localStorage.setItem('TaskId'+key, row.task_id);
+	return(
+							  
+
 						    <tr>
-                            <th scope="row">1</th>
-						      <td>Jacob</td>
-						      <td>place link</td>
-                              <td>date</td>
-						      <td>pending</td>
-                              
+                            
+						      <td>{row.t_title}</td>
+						      <td>{row.t_details}</td>
+                              <td>{row.deadline}</td>
+						      <td>{row.emp_comp_status}</td>
+							  <td><Link onClick={() => handleProgress(row.task_id)} to="/tasks-view" > In-Progress</Link> </td>
+                              <td><Link onClick={() => handleTaskCompletion(row.task_id)} to="/tasks-view" > Complete</Link> </td>
 						    </tr>
 
-                            <tr>
-                            <th scope="row">2</th>
-						      <td>Jacob</td>
-						      <td>place link</td>
-                              <td>date</td>
-						      <td>pending</td>
-                              
-						    </tr>
+							  )
+}) :
+<h3> No Tasks Found </h3>
+}                 
 						   
 						    
 						  </tbody>

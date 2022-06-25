@@ -1,15 +1,20 @@
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import { useContext } from "react";
 import Context from "../store/Context";
+import { TaskFetch } from "../models/TaskFetch";
 
 const Header =()=>{
 
     const {globalState, globalDispatch} =useContext(Context);
 
     const logout=()=>{
+
         globalDispatch({type: 'TOKEN', data: {token: ''} });
+        window.localStorage.clear();        
         
     }
+
+    
 
     
 
@@ -84,6 +89,8 @@ const Header =()=>{
 
 
           <li ><Link to="/tasks-view">Tasks</Link></li>
+          
+
 
           <li class="has-children">Leaves
             <ul class="dropdown arrow-top">
@@ -94,6 +101,8 @@ const Header =()=>{
 
           <li ><Link to="/tasks-details">Task Details</Link></li>
           <li ><Link onClick={logout} to="/" >LogOut </Link></li>
+
+
 
             
                            

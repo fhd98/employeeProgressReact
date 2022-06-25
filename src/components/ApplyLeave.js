@@ -27,7 +27,7 @@ const check=()=>{
 
                 <div class="form-group">
                         <label>Total Days of Leave</label>
-                        <input value={daysLeave} type="text" class="form-control" onChange={(e)=>setDaysLeave(e.target.value)} placeholder="Enter a number"/>
+                        <input value={daysLeave} type="number" class="form-control" onChange={(e)=>setDaysLeave(e.target.value)} placeholder="Select number of days"/>
                       </div>
 
                       

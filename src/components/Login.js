@@ -27,8 +27,9 @@ const Login = () => {
                     console.log("Approved");
                     globalDispatch({ type: 'TOKEN', data: { token: 'logged in' } });
                     //set local storage here
+                    localStorage.setItem('EmployeeName',result.userDetails.e_name);
 
-                    Navigate('/tasks-view');
+                    Navigate('/welcome');
                 }
                 else {
                     Navigate('/pending-login');
