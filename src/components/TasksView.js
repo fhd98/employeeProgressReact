@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { TaskCompletion, TaskFetch, TaskProgress } from "../models/TaskFetch";
 
 const TasksView =()=>{
@@ -23,6 +23,7 @@ const TasksView =()=>{
 			TaskCompletion($taskId, function(result){
 					//console.log(result);
 					window.location.reload();
+					
 			})
 
 	}
@@ -46,7 +47,7 @@ const TasksView =()=>{
 						<table class="table">
 						  <thead class="thead-primary">
 						    <tr>
-						      
+							<th>No.</th>
 						      <th>Title</th>
                               <th>Details</th>
 						      <th>Deadline</th>
@@ -68,7 +69,7 @@ tasks.map((row,key)=>{
 							  
 
 						    <tr>
-                            
+                            <td>{key}</td>
 						      <td>{row.t_title}</td>
 						      <td>{row.t_details}</td>
                               <td>{row.deadline}</td>

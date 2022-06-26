@@ -99,7 +99,7 @@ const Header =()=>{
             </ul>
             </li>
 
-          <li ><Link to="/tasks-details">Task Details</Link></li>
+          
           <li ><Link onClick={logout} to="/" >LogOut </Link></li>
 
 

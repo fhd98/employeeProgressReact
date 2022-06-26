@@ -28,6 +28,7 @@ const Login = () => {
                     globalDispatch({ type: 'TOKEN', data: { token: 'logged in' } });
                     //set local storage here
                     localStorage.setItem('EmployeeName',result.userDetails.e_name);
+                    localStorage.setItem('EmployeeDept',result.userDetails.department);
 
                     Navigate('/welcome');
                 }

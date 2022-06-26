@@ -1,19 +1,31 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ApplyLeaveReq } from "../models/Leaves";
 
 
 const ApplyLeaves=()=>{
-
+  const Navigate= useNavigate();
 const [daysLeave, setDaysLeave]=useState('');
 const [typeLeave, setTypeLeave]=useState('');
 const [details, setDetails]=useState('');
 const [startDate, setStartDate]=useState('');
 const [endDate, setEndDate]=useState('');
 
+var empName=localStorage.getItem('EmployeeName');
+var empDept=localStorage.getItem('EmployeeDept');
 
 
-const check=()=>{
-    alert(daysLeave+', '+typeLeave+', '+details+', '+startDate+', '+endDate);
-}
+  const handleLeave=(e)=>{
+    e.preventDefault();
+    ApplyLeaveReq({empName:empName, empDept:empDept, daysLeave:daysLeave, typeLeave:typeLeave, details:details, startDate:startDate, endDate:endDate}, function(result) 
+    {
+        console.log(result);
+        Navigate ('/leaves-status');
+    });
+  }
+
+
+
     return(
 <div class="center">
         <div class="col-md-6">
@@ -22,7 +34,7 @@ const check=()=>{
                 <h3 class="card-title">Apply for Leave</h3>
               </div>
             
-              <form>
+              <form onSubmit={(e)=>{ handleLeave(e)} }>
                 <div class="card-body">
 
                 <div class="form-group">
@@ -62,7 +74,7 @@ const check=()=>{
                 </div>
 
                 <div class="card-footer">
-                  <button type="button" onClick={check} class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
               </div>
