@@ -1,4 +1,25 @@
+import {  useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { LeavesStatusRequest } from "../models/Leaves";
+
+
 const LeavesStatus=()=>{
+
+	var empName=localStorage.getItem('EmployeeName');
+	var empDept=localStorage.getItem('EmployeeDept');
+
+	const[leaves, setLeaves]=useState([]);
+
+	useEffect(()=>{
+		//console.log('HEllo World');
+		LeavesStatusRequest({empName,empDept} ,function(result){
+			setLeaves(result);
+		})
+		
+	},[])
+
+
+
     return(
 <section class="ftco-section">
 		<div class="container">
@@ -10,7 +31,7 @@ const LeavesStatus=()=>{
 						  <thead class="thead-primary">
 						    <tr>
 						      <th>#</th>
-						      <th>Total Days</th>
+						      <th>No. of Days</th>
                               <th>Leave Type</th>
 						      <th>Starting Date</th>
                               <th>Ending Date</th>
@@ -20,16 +41,31 @@ const LeavesStatus=()=>{
 						    </tr>
 						  </thead>
 						  <tbody>
+
+							  {
+						  leaves.length >0 ?
+leaves.map((row,key)=>{ 
+
+			
+	return(
+							  
+
 						    <tr>
-                            <th scope="row">1</th>
-						      <td>2</td>
-						      <td>place link</td>
-                              <td>date</td>
-						      <td>pending</td>
-                              
+                            <td>{key}</td>
+						      <td>{row.days}</td>
+							  <td>{row.type}</td>
+							  <td>{row.startingDate}</td>
+							  <td>{row.endingDate}</td>
+							  <td>{row.status}</td>
+						      
+							  
 						    </tr>
 
-                           
+							  )
+}) :
+<h3> No Leaves Found </h3>
+
+}   
 						   
 						    
 						  </tbody>

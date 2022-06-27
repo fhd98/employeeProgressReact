@@ -6,7 +6,7 @@ import { ApplyLeaveReq } from "../models/Leaves";
 const ApplyLeaves=()=>{
   const Navigate= useNavigate();
 const [daysLeave, setDaysLeave]=useState('');
-const [typeLeave, setTypeLeave]=useState('');
+const [typeLeave, setTypeLeave]=useState('Sick Leave');
 const [details, setDetails]=useState('');
 const [startDate, setStartDate]=useState('');
 const [endDate, setEndDate]=useState('');
