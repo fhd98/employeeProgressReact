@@ -11,12 +11,17 @@ const [password, setPassword]=useState('');
 const [gender, setGender]=useState('');
 const [dept, setDept]=useState('');
 
+const [isLoading, setIsLoading] = useState(false);
+
+
 
 const handleSignup=(e)=>{
     e.preventDefault();
+    setIsLoading(true);
     SignUpCall({name:name, email:email, password:password, gender:gender, dept:dept}, function(result) 
     {
         console.log(result);
+        setIsLoading(false);
         Navigate ('/login');
     });
 }
@@ -83,7 +88,7 @@ const handleSignup=(e)=>{
           
           {/* <!-- /.col --> */}
           <div class="col-12">
-          <button type="submit"  class="btn btn-primary btn-block">Register</button>
+          <button type="submit"  class="btn btn-primary btn-block" disabled={isLoading}>Register</button>
           </div>
           {/* <!-- /.col --> */}
         </div>

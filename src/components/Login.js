@@ -12,13 +12,16 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
+
+
 
 
     const handleLogin = (e) => {
 
 
         e.preventDefault();
-
+        setIsLoading(true);
 
         LoginCall({ email: email, password: password }, function (result) {
             console.log(result);
@@ -30,15 +33,19 @@ const Login = () => {
                     localStorage.setItem('EmployeeName',result.userDetails.e_name);
                     localStorage.setItem('EmployeeDept',result.userDetails.department);
 
+
+                    setIsLoading(false);
                     Navigate('/welcome');
                 }
                 else {
+                    setIsLoading(false);
                     Navigate('/pending-login');
                 }
             }
 
 
             else {
+                setIsLoading(false);
                 Navigate('/error-login');
             }
         })
@@ -77,7 +84,7 @@ const Login = () => {
 
                             {/* <!-- /.col --> */}
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                <button type="submit" class="btn btn-primary btn-block" disabled={isLoading}>Sign In</button>
                             </div>
                             {/* <!-- /.col --> */}
                         </div>
