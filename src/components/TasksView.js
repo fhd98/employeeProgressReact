@@ -4,12 +4,14 @@ import { TaskCompletion, TaskFetch, TaskProgress } from "../models/TaskFetch";
 
 const TasksView =()=>{
 	var empName=localStorage.getItem('EmployeeName');
+	var empDept=localStorage.getItem('EmployeeDept');
+	
 
 	const[tasks, setTasks]=useState([]);
 
 	useEffect(()=>{
 		//console.log('HEllo World');
-		TaskFetch(empName,function(result){
+		TaskFetch({empName,empDept} ,function(result){
 			setTasks(result);
 		})
 		
