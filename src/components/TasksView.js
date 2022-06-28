@@ -71,7 +71,7 @@ tasks.map((row,key)=>{
 							  
 
 						    <tr>
-                            <td>{key}</td>
+                            <td>{key+1}</td>
 						      <td>{row.t_title}</td>
 						      <td>{row.t_details}</td>
                               <td>{row.deadline}</td>

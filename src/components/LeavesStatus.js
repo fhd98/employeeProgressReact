@@ -51,7 +51,7 @@ leaves.map((row,key)=>{
 							  
 
 						    <tr>
-                            <td>{key}</td>
+                            <td>{key+1}</td>
 						      <td>{row.days}</td>
 							  <td>{row.type}</td>
 							  <td>{row.startingDate}</td>
