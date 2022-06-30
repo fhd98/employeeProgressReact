@@ -12,6 +12,8 @@ import ApplyLeaves from './components/ApplyLeave';
 import { WrongLogin } from './components/WrongLogin';
 import { PendingLogin } from './components/PendingLogin';
 import Welcome from './components/Welcome';
+import AdminProfile from './components/AdminProfile';
+import ProfileAdmin from './components/ProfileAdmin';
 
 
 function App() {
@@ -33,6 +35,9 @@ function App() {
          <Route path ="/error-login"element={<WrongLogin />} />
          <Route path ="/pending-login"element={<PendingLogin />} />
          <Route path ="/welcome"element={<Welcome />} />
+         <Route path ="/admin-profile"element={<AdminProfile />} />
+
+         <Route path ="/admin-profile2"element={<ProfileAdmin />} />
         
         
       </Route>

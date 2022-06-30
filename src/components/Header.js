@@ -99,6 +99,8 @@ const Header =()=>{
             </ul>
             </li>
 
+            <li ><Link to="/admin-profile">Admin Profile</Link></li>
+
           
           <li ><Link onClick={logout} to="/" >LogOut </Link></li>
 
