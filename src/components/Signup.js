@@ -53,13 +53,13 @@ const handleSignup=(e)=>{
 
       {
 error =="" ?
-(()=>{ 
+( ()=>{ 
 
 			//localStorage.setItem('TaskId'+key, row.task_id);
 	return(
 							  
 <></>  )
-}) :
+} ) :
 
 <div class="alert alert-danger" role="alert">
 Email Already Exists.

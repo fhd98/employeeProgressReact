@@ -12,6 +12,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [error, setError] = useState('');
+
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -30,8 +32,8 @@ const Login = () => {
                     console.log("Approved");
                     globalDispatch({ type: 'TOKEN', data: { token: 'logged in' } });
                     //set local storage here
-                    localStorage.setItem('EmployeeName',result.userDetails.e_name);
-                    localStorage.setItem('EmployeeDept',result.userDetails.department);
+                    localStorage.setItem('EmployeeName', result.userDetails.e_name);
+                    localStorage.setItem('EmployeeDept', result.userDetails.department);
 
 
                     setIsLoading(false);
@@ -39,14 +41,18 @@ const Login = () => {
                 }
                 else {
                     setIsLoading(false);
-                    Navigate('/pending-login');
+                    setError("pending");
+                    console.log(error);
+                    //Navigate('/pending-login');
                 }
             }
 
 
             else {
                 setIsLoading(false);
-                Navigate('/error-login');
+                setError("not exist");
+                console.log(error);
+                //Navigate('/error-login');
             }
         })
 
@@ -57,11 +63,37 @@ const Login = () => {
         <div class="login-box" class="hold-transition login-page">
             <div class="login-logo">
                 <b>Log In </b>
-             </div>
+            </div>
             {/* <!-- /.login-logo --> */}
             <div class="card">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
+
+
+
+
+                    {(() => {
+                        if (error == "") {
+                            return (
+                                <></>
+                            )
+                        } else if (error == "pending") {
+                            return (
+                                <div class="alert alert-danger" role="alert">
+                                    Your Request is still Pending.
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div class="alert alert-danger" role="alert">
+                                    Invalid Email or Password.
+                                </div>
+                            )
+                        }
+                    })()
+                    }
+
+
 
                     <form onSubmit={(e) => { handleLogin(e) }}>
                         <div class="input-group mb-3">
