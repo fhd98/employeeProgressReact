@@ -10,6 +10,8 @@ const [email, setEmail]=useState('');
 const [password, setPassword]=useState('');
 const [gender, setGender]=useState('');
 const [dept, setDept]=useState('');
+const [error, setError]=useState('');
+
 
 const [isLoading, setIsLoading] = useState(false);
 
@@ -20,9 +22,20 @@ const handleSignup=(e)=>{
     setIsLoading(true);
     SignUpCall({name:name, email:email, password:password, gender:gender, dept:dept}, function(result) 
     {
+
+
+      if(result.status == "exists"){
+        setError(result);
+        setIsLoading(false);
+      }
+      else{
+
         console.log(result);
         setIsLoading(false);
         Navigate ('/login');
+      }
+
+
     });
 }
 
@@ -36,6 +49,25 @@ const handleSignup=(e)=>{
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register  new membership</p>
+
+
+      {
+error =="" ?
+(()=>{ 
+
+			//localStorage.setItem('TaskId'+key, row.task_id);
+	return(
+							  
+<></>  )
+}) :
+
+<div class="alert alert-danger" role="alert">
+Email Already Exists.
+</div>
+
+}
+
+
 
       <form method="POST"  onSubmit={(e)=>{ handleSignup(e)} }>
         <div class="input-group mb-3">

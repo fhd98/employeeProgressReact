@@ -92,12 +92,12 @@ const Header =()=>{
           
 
 
-          <li class="has-children">Leaves
-            <ul class="dropdown arrow-top">
+          
+            
             <li ><Link to="/leaves-status">Leaves Status</Link></li>
             <li ><Link to="/apply-leave">Apply Leave</Link></li>
-            </ul>
-            </li>
+            
+            
 
             <li ><Link to="/admin-profile">Admin Profile</Link></li>
 
