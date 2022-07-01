@@ -27,3 +27,18 @@ export const SignUpCall=(data,cb)=>
         cb(result);
     })
 }
+
+export const DepartmentCall=(cb)=>
+{
+    fetch('http://localhost:8000/api/allDepartments',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        
+    })
+    .then (resp=>resp.json())
+    .then((result)=>{
+        cb(result);
+    })
+}
