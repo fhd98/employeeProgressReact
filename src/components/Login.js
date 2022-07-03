@@ -34,6 +34,8 @@ const Login = () => {
                     //set local storage here
                     localStorage.setItem('EmployeeName', result.userDetails.e_name);
                     localStorage.setItem('EmployeeDept', result.userDetails.department);
+                    localStorage.setItem('EmployeeID', result.userDetails.employeeID);
+
 
 
                     setIsLoading(false);

@@ -76,7 +76,7 @@ const Header =()=>{
 
 
     <div class="site-logo">
-      <a href="" class="text-black"><span class="text-primary" />Employee Progress Tracking</a>
+      <a href="" class="text-black"><span class="text-primary" />Employee Tracker </a>
     </div>
 
     <div class="col-12">
@@ -97,9 +97,10 @@ const Header =()=>{
             <li ><Link to="/leaves-status">Leaves Status</Link></li>
             <li ><Link to="/apply-leave">Apply Leave</Link></li>
             
-            
+            <li ><Link to="/update-profile">Update Profile</Link></li>
 
             <li ><Link to="/admin-profile">Admin Profile</Link></li>
+            
 
           
           <li ><Link onClick={logout} to="/" >LogOut </Link></li>
