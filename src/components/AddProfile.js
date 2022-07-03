@@ -8,7 +8,6 @@ const AddProfile = () => {
   const [name, setName] = useState('');
   const [dob, setDob] = useState('Sick Leave');
   const [interests, setInterests] = useState('');
-  const [picture, setPicture] = useState('');
 
 
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +21,7 @@ const AddProfile = () => {
         setName(result.e_name);
         setDob(result.dob);
         setInterests(result.interests);
+        
     })
     
 },[])
@@ -29,10 +29,11 @@ const AddProfile = () => {
 
 
   const handleProfile = (e) => {
+    //alert(picture);
     e.preventDefault();
     setIsLoading(true);
     updateEmpProfile({empID:empID, name: name, dob: dob, interests: interests}, function (result) {
-      console.log("HEllo");
+    
       console.log(result);
       if (result.status == 'pass') {
         setIsLoading(false);
@@ -80,7 +81,7 @@ error =="" ?
 
 
 
-          <form onSubmit={(e) => { handleProfile(e) }}>
+          <form  onSubmit={(e) => { handleProfile(e) }}>
             <div class="card-body">
 
               <div class="form-group">
@@ -102,6 +103,7 @@ error =="" ?
                 <input  value={interests} type="text" class="form-control" onChange={(e) => setInterests(e.target.value)}  />
               </div>
 
+              
 
 
             </div>
