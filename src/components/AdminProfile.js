@@ -21,7 +21,7 @@ const AdminProfile =()=>{
     //console.log(path);
 
     return(
-
+<div class="row">
         <div class="col-md-3">
 <div class="card card-primary card-outline">
         <div class="card-body box-profile">
@@ -45,6 +45,7 @@ const AdminProfile =()=>{
 </div>
 </div>
 
+</div>
 </div>
     );
 

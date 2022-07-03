@@ -36,7 +36,7 @@ const AddProfile = () => {
       console.log(result);
       if (result.status == 'pass') {
         setIsLoading(false);
-        Navigate('/leaves-status');
+        Navigate('/team-profiles');
       }
 
       else {
@@ -85,7 +85,7 @@ error =="" ?
 
               <div class="form-group">
                 <label>Full Name:</label>
-                <input required value={name} type="text" class="form-control" onChange={(e) => setName(e.target.value)}  />
+                <input disabled required value={name} type="text" class="form-control" onChange={(e) => setName(e.target.value)}  />
               </div>
 
 

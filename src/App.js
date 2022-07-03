@@ -14,6 +14,7 @@ import { PendingLogin } from './components/PendingLogin';
 import Welcome from './components/Welcome';
 import AdminProfile from './components/AdminProfile';
 import AddProfile from './components/AddProfile';
+import ViewTeam from './components/ViewTeam';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
          <Route path ="/welcome"element={<Welcome />} />
          <Route path ="/admin-profile"element={<AdminProfile />} />
          <Route path ="/update-profile"element={<AddProfile />} />
+         <Route path ="/team-profiles"element={<ViewTeam />} />
 
          
         
